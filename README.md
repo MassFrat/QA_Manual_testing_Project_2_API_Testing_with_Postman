@@ -7,7 +7,7 @@ including happy path, negative, and edge case testing.
 
 ## Test Summary
 | Total Test Cases | Pass | Fail | Bugs Found |
-|---|---|---|---|
+|:---:|:---:|:---:|:---:|
 | 15 | 10 | 5 | 5 |
 
 ## Tools Used
