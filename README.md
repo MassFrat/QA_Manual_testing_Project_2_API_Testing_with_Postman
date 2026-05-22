@@ -45,18 +45,23 @@ including happy path, negative, and edge case testing.
 
 ### BUG-002 — Medium Severity
 - Endpoint: DELETE /booking/{id}
-- Issue: Returns 405 Method Not Allowed instead of
+- Issue: Returns 403 Forbidden instead of
   404 Not Found for a non-existent booking ID
 
 ### BUG-003 — Medium Severity
 - Endpoint: POST /booking
 - Issue: Accepts bookings with a total price of zero —
-  no business logic validation in place
+  returns 200 OK with a new booking id
 
 ### BUG-004 — Medium Severity
 - Endpoint: POST /booking
-- Issue: Accepts firstname values over 200 characters —
-  no character limit enforced on name fields
+- Issue: Accepts bookings with identical check-in and check-out dates —
+  returns 200 OK with a new booking id
+
+### BUG-005 — Medium Severity
+- Endpoint: POST /booking
+- Issue: Accepts firstname values over 50+ characters —
+  returns 200 OK with a new boooking  id
 
 ## How to Use the Postman Collection
 1. Download `restful-booker-postman-collection.json`
