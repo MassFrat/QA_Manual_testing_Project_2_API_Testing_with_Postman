@@ -8,7 +8,7 @@ including happy path, negative, and edge case testing.
 ## Test Summary
 | Total Test Cases | Pass | Fail | Bugs Found |
 |---|---|---|---|
-| 15 | 10 | 5 | 4 |
+| 15 | 10 | 5 | 5 |
 
 ## Tools Used
 - Postman (API testing and request execution)
@@ -66,15 +66,4 @@ including happy path, negative, and edge case testing.
 5. Select the environment from the top right dropdown
 6. Run TC001 first to generate a token before running other requests
 
-## Files in This Repository
-| File | Description |
-|---|---|
-| restful-booker-test-cases-TC001-TC015.xlsx | Full test case document |
-| restful-booker-test-cases-TC001-TC015.pdf | PDF version of test cases |
-| restful-booker-postman-collection.json | Importable Postman collection |
-| restful-booker-environment.json | Postman environment variables |
-| bug-report.md | Detailed bug reports for all 4 bugs found |
-| screenshots/ | Screenshots of test results and bugs |
 
-## Tester
-Mass Frat — May 2026
