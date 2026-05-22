@@ -39,29 +39,28 @@ including happy path, negative, and edge case testing.
 ## Bugs Found
 ### BUG-001 — High Severity
 - Endpoint: POST /booking
-- Issue: Returns 500 Internal Server Error instead of
-  400 Bad Request when a required field is missing
-- Screenshot: screenshots/TC010-500-error-missing-field.png
+- Issue: Instead of 400 Bad Request when a required field is missing
+- returns 500 Internal Server Error
 
 ### BUG-002 — Medium Severity
 - Endpoint: DELETE /booking/{id}
-- Issue: Returns 403 Forbidden instead of
-  404 Not Found for a non-existent booking ID
+- Issue: Instead of  404 Not Found for a non-existent booking ID
+- returns 403 Forbidden 
 
 ### BUG-003 — Medium Severity
 - Endpoint: POST /booking
-- Issue: Accepts bookings with a total price of zero —
-  returns 200 OK with a new booking id
+- Issue: Accepts bookings with a total price of zero 
+- returns 200 OK with a new booking id
 
 ### BUG-004 — Medium Severity
 - Endpoint: POST /booking
-- Issue: Accepts bookings with identical check-in and check-out dates —
-  returns 200 OK with a new booking id
+- Issue: Accepts bookings with identical check-in and check-out dates 
+- returns 200 OK with a new booking id
 
 ### BUG-005 — Medium Severity
 - Endpoint: POST /booking
-- Issue: Accepts firstname values over 50+ characters —
-  returns 200 OK with a new boooking  id
+- Issue: Accepts firstname values over 50+ characters 
+- returns 200 OK with a new boooking  id
 
 ## How to Use the Postman Collection
 1. Download `restful-booker-postman-collection.json`
