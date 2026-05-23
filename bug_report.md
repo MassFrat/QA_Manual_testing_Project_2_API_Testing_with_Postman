@@ -300,11 +300,11 @@ Once the development team has applied fixes, all bugs must be retested to confir
 
 | Bug ID | Title | Status | Fix Version | Retest Date | Retested By | Retest Result |
 |:---:|---|:---:|:---:|:---:|:---:|:---:|
-| BUG-001 | POST /booking 500 on missing required field | 🔴 Open | — | — |  | — | 
-| BUG-002 | DELETE returns 405 on non-existent booking ID | 🔴 Open | — | — |  | — |
-| BUG-003 | POST /booking accepts zero total price | 🔴 Open | — | — |  | — |
-| BUG-004 | POST /booking allows identical check-in and check-out dates | 🔴 Open | — | — |  | — |
-| BUG-005 | POST /booking accepts 50+ character firstname | 🔴 Open | — | — |  | — |
+| BUG-001 | POST /booking 500 on missing required field | 🔴 Open | — | — | — | — | 
+| BUG-002 | DELETE returns 405 on non-existent booking ID | 🔴 Open | — | — | — | — |
+| BUG-003 | POST /booking accepts zero total price | 🔴 Open | — | — | — | — |
+| BUG-004 | POST /booking allows identical check-in and check-out dates | 🔴 Open | — | — | — | — |
+| BUG-005 | POST /booking accepts 50+ character firstname | 🔴 Open | — | — | — | — |
 
 <br>
 
