@@ -1,5 +1,5 @@
 # Bug Report — Restful Booker API
-## Project 2: API Testing with Postman
+### Project 2: API Testing with Postman
 
 <br>
 
@@ -13,15 +13,19 @@
 | **Total Test Cases Executed** | 15 |
 | **Total Bugs Found** | 5 |
 
+<br>
+
 ---
 
 <br> 
 
-## Test Execution Summary
+### Test Execution Summary
 
 | Total Test Cases | Passed | Failed | Bugs Found | Pass Rate |
 |:---:|:---:|:---:|:---:|:---:|
 | 15 | 10 | 5 | 5 | 67% |
+
+<br>
 
 ### Results by Test Type
 
@@ -35,7 +39,7 @@
 ---
 <br>
 
-## Failed Test Cases Reference
+### Failed Test Cases Reference
 
 | TC ID | Description | Expected Status | Actual Status | Result |
 |:---:|---|:---:|:---:|:---:|
@@ -53,7 +57,7 @@ Note: TC011 is included for reference — it passed, confirming the API correctl
 ---
 <br>
 
-## Severity Guide
+### Severity Guide
 
 | Severity | Level | Definition |
 |:---:|:---:|---|
@@ -66,7 +70,7 @@ Note: TC011 is included for reference — it passed, confirming the API correctl
 
 ---
 
-## Detailed Bug Reports
+### Detailed Bug Reports
 
 ---
 
@@ -293,8 +297,9 @@ Note: TC011 is included for reference — it passed, confirming the API correctl
 > ❌ The API returned **200 OK** and created the booking successfully, storing the 50+ character firstname with no validation error or truncation.
 
 ---
+<br>
 
-## Retest Tracker
+### Retest Tracker
 
 Once the development team has applied fixes, all bugs must be retested to confirm the fixes work correctly and have not introduced any new issues.
 
