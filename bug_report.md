@@ -1,6 +1,8 @@
 # Bug Report — Restful Booker API
 ## Project 2: API Testing with Postman
 
+<br>
+
 | Field | Details |
 |---|---|
 | **Tester** | Mass Frat |
@@ -12,6 +14,8 @@
 | **Total Bugs Found** | 5 |
 
 ---
+
+<br> 
 
 ## Test Execution Summary
 
@@ -26,8 +30,10 @@
 | Happy Path | 9 (TC001–TC009) | 9 | 0 |
 | Negative | 3 (TC010–TC012) | 1 | 2 |
 | Edge Case | 3 (TC013–TC015) | 0 | 3 |
+<br> 
 
 ---
+<br>
 
 ## Failed Test Cases Reference
 
@@ -38,11 +44,14 @@
 | TC012 | Delete a non-existent booking ID | 404 Not Found | 405 Method Not Allowed | ❌ FAIL |
 | TC013 | Create booking with total price of zero | 400 Bad Request | 200 OK | ❌ FAIL |
 | TC014 | Create booking with same check-in and check-out date | 400 Bad Request | 200 OK | ❌ FAIL |
-| TC015 | Create booking with 200+ character firstname | 400 Bad Request | 200 OK | ❌ FAIL |
+| TC015 | Create booking with 50+ character firstname | 400 Bad Request | 200 OK | ❌ FAIL |
 
-> TC011 is included for reference — it passed, confirming the API correctly blocks unauthorised requests.
+Note: TC011 is included for reference — it passed, confirming the API correctly blocks unauthorised requests.
+
+<br>
 
 ---
+<br>
 
 ## Severity Guide
 
@@ -53,13 +62,19 @@
 | 🟡 | Medium | Feature is impacted but a workaround exists. |
 | 🟢 | Low | Minor issue. No impact on core functionality. |
 
+<br>
+
 ---
 
 ## Detailed Bug Reports
 
 ---
 
+<br>
+
 ### BUG-001 — POST /booking Returns 500 Internal Server Error When Required Field is Missing
+
+<br>
 
 | Field | Details |
 |---|---|
@@ -97,9 +112,15 @@
 #### Actual Result
 > ❌ The API returned **500 Internal Server Error**. The server crashed when attempting to process the request with a missing field instead of gracefully rejecting it. No meaningful error message was returned.
 
+<br>
+
 ---
 
+<br>
+
 ### BUG-002 — DELETE /booking/{id} Returns 405 Instead of 404 for Non-Existent Booking ID
+
+<br>
 
 | Field | Details |
 |---|---|
@@ -127,9 +148,15 @@
 #### Actual Result
 > ❌ The API returned **405 Method Not Allowed**. This incorrectly implies the DELETE method itself is not permitted on this endpoint — which is misleading since DELETE is a valid, documented method here.
 
+<br>
+
 ---
 
+<br>
+
 ### BUG-003 — POST /booking Accepts a Total Price of Zero With No Business Logic Validation
+
+<br>
 
 | Field | Details |
 |---|---|
@@ -169,9 +196,15 @@
 #### Actual Result
 > ❌ The API returned **200 OK** and successfully created a booking with a total price of zero, assigning it a new `bookingid`. No validation error was returned and the booking was stored as if it were valid.
 
+<br>
+
 ---
 
+<br>
+
 ### BUG-004 — POST /booking Allows Booking With Identical Check-in and Check-out Dates
+
+<br>
 
 | Field | Details |
 |---|---|
@@ -211,9 +244,15 @@
 #### Actual Result
 > ❌ The API returned **200 OK** and successfully created the booking with identical check-in and check-out dates, assigning it a new `bookingid`. No validation error was returned.
 
+<br>
+
 ---
 
-### BUG-005 — POST /booking Accepts Firstname Values Exceeding 200 Characters With No Character Limit
+<br>
+
+### BUG-005 — POST /booking Accepts Firstname Values Exceeding 50+ Characters With No Character Limit
+
+<br>
 
 | Field | Details |
 |---|---|
@@ -224,17 +263,17 @@
 | **Endpoint** | `POST /booking` |
 | **Method** | POST |
 | **Test Case Reference** | TC015 |
-| **Environment** | Chrome 124 / Windows 11 / Postman / May 2026 |
+| **Environment** | Chrome 148 / Windows 11 / Postman / May 2026 |
 
 #### Steps to Reproduce
 
 1. Open Postman and create a new `POST` request to `https://restful-booker.herokuapp.com/booking`
 2. Go to the **Headers** tab and add: `Content-Type: application/json`
 3. Go to the **Body** tab, select **raw** and set format to **JSON**
-4. Enter the following JSON body using a `firstname` value of over 200 characters:
+4. Enter the following JSON body using a `firstname` value of over 50+ characters:
 ```json
 {
-    "firstname": "Johnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",
+    "firstname": "Johnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",
     "lastname": "Smith",
     "totalprice": 100,
     "depositpaid": true,
@@ -251,7 +290,7 @@
 > The API should return **400 Bad Request** because the `firstname` field value exceeds a reasonable character limit. Most systems impose character limits on name fields (typically 50–100 characters maximum).
 
 #### Actual Result
-> ❌ The API returned **200 OK** and created the booking successfully, storing the 200+ character firstname with no validation error or truncation.
+> ❌ The API returned **200 OK** and created the booking successfully, storing the 50+ character firstname with no validation error or truncation.
 
 ---
 
@@ -261,19 +300,23 @@ Once the development team has applied fixes, all bugs must be retested to confir
 
 | Bug ID | Title | Status | Fix Version | Retest Date | Retested By | Retest Result |
 |:---:|---|:---:|:---:|:---:|:---:|:---:|
-| BUG-001 | POST /booking 500 on missing required field | 🔴 Open | — | — | Mass Frat | — |
-| BUG-002 | DELETE returns 405 on non-existent booking ID | 🔴 Open | — | — | Mass Frat | — |
-| BUG-003 | POST /booking accepts zero total price | 🔴 Open | — | — | Mass Frat | — |
-| BUG-004 | POST /booking allows identical check-in and check-out dates | 🔴 Open | — | — | Mass Frat | — |
-| BUG-005 | POST /booking accepts 200+ character firstname | 🔴 Open | — | — | Mass Frat | — |
+| BUG-001 | POST /booking 500 on missing required field | 🔴 Open | — | — |  | — | 
+| BUG-002 | DELETE returns 405 on non-existent booking ID | 🔴 Open | — | — |  | — |
+| BUG-003 | POST /booking accepts zero total price | 🔴 Open | — | — |  | — |
+| BUG-004 | POST /booking allows identical check-in and check-out dates | 🔴 Open | — | — |  | — |
+| BUG-005 | POST /booking accepts 50+ character firstname | 🔴 Open | — | — |  | — |
+
+<br>
 
 ### Retest Process
+
+<br>
+
 1. Receive notification from the development team that a bug fix has been deployed
 2. Re-run the original failing test case in Postman using the exact same steps and request body
 3. Verify the actual result now matches the expected result and the correct status code is returned
 4. Run surrounding test cases to check for regression — confirm no previously passing tests have broken
 5. Update the retest status above to **Closed** if confirmed fixed, or **Reopened** if the bug still exists
 
----
 
-*Bug Report — Restful Booker API | Tester: Mass Frat | May 2026 | Project 2 — API Testing with Postman*
+
